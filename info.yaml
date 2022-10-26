@@ -3,7 +3,7 @@
 project:
   wokwi_id:    0        # If using wokwi, set this to your project's ID
   source_files:        # If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. Source files must be in ./src
-    - logisimTopLevelShell.v
+    - toplevel/logisimTopLevelShell.v
     - circuit/main.v
     - gates/NAND_GATE.v
     - gates/OR_GATE.v
