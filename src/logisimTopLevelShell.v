@@ -27,16 +27,11 @@ module logisim_demo(
    /*******************************************************************************
    ** The toplevel component is connected here                                   **
    *******************************************************************************/
-  /* main   CIRCUIT_0 (.CLK(s_CLK),
+  main   CIRCUIT_0 (.CLK(s_CLK),
                      .O_0(s_O_0),
                      .O_1(s_O_1),
                      .O_2(s_O_2),
                      .O_3(s_O_3),
-                     .RST(s_RST));*/
-      assign s_O_0 = ~s_CLK;
-      assign s_O_1 = ~s_RST;
-      assign s_O_2 = s_CLK & s_RST;
-      assign s_O_3 = s_RST;
-
+                     .RST(s_RST));
       assign io_out[7:4] = 0;
 endmodule
