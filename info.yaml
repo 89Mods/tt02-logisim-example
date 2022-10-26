@@ -5,7 +5,7 @@ project:
   source_files:        # If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. Source files must be in ./src
     - counter.v
     - decoder.v
-  top_module:  "seven_segment_seconds"      # put the name of your top module here, make it unique by prepending your github username
+  top_module:  "logisim_demo"      # put the name of your top module here, make it unique by prepending your github username
 
 # As everyone will have access to all designs, try to make it easy for someone new to your design to know what
 # it does and how to operate it.
@@ -14,19 +14,19 @@ project:
 #
 # This info will be automatically collected and used to make a datasheet for the chip.
 documentation: 
-  author:       "Matt Venn"      # Your name
-  title:        "7 segment seconds"      # Project title
-  description:  ""      # Short description of what your project does
-  how_it_works: ""      # Longer description of how the project works
-  how_to_test:  ""      # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
-  external_hw:  ""      # Describe any external hardware needed
+  author:       "Tholin"      # Your name
+  title:        "Logisim demo - LED blinker"      # Project title
+  description:  "Example of how to use Logisim Evolution generated Verilog for TinyTapeout."      # Short description of what your project does
+  how_it_works: "Its a 4-bit ring-shift register with a single '1' cycling through it after reset."      # Longer description of how the project works
+  how_to_test:  "After starting the clock, the 4 outputs will remain off or in a random state until the reset input is activated. Then it should work as described."      # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
+  external_hw:  "A button for reset, some way to display the output (LEDs)"      # Describe any external hardware needed
   language:     "verilog" # other examples include Verilog, Amaranth, VHDL, etc
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
-  clock_hz:     1000       # Clock frequency in Hz (if required)
+  clock_hz:     2       # Clock frequency in Hz (if required)
   picture:      ""      # relative path to a picture in your repository
   inputs:               # a description of what the inputs do
-    - clock
-    - reset
+    - CLK
+    - RST
     - none
     - none
     - none
@@ -34,12 +34,12 @@ documentation:
     - none
     - none
   outputs:
-    - segment a         # a description of what the outputs do
-    - segment b
-    - segment c
-    - segment d
-    - segment e
-    - segment f
-    - segment g
+    - O_0         # a description of what the outputs do
+    - O_1
+    - O_2
+    - O_3
+    - none
+    - none
+    - none
     - none
 
