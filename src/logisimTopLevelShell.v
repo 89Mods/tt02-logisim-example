@@ -7,8 +7,8 @@
  *****************************************************************************/
 
 module logisim_demo(
-  input [7:0] io_in;
-  input [7:0] io_out;
+  input [7:0] io_in,
+  output [7:0] io_out
 );
    /*******************************************************************************
    ** The wires are defined here                                                 **
@@ -31,12 +31,12 @@ module logisim_demo(
    /*******************************************************************************
    ** All signal adaptations are performed here                                  **
    *******************************************************************************/
-   assign O_0_0 = s_O_0;
-   assign O_1_0 = s_O_1;
-   assign O_2_0 = s_O_2;
-   assign O_3_0 = s_O_3;
-   assign s_CLK = ~n_CLK_0;
-   assign s_RST = ~n_RST_0;
+   //assign O_0_0 = s_O_0;
+   //assign O_1_0 = s_O_1;
+   //assign O_2_0 = s_O_2;
+   //assign O_3_0 = s_O_3;
+   //assign s_CLK = ~n_CLK_0;
+   //assign s_RST = ~n_RST_0;
 
    /*******************************************************************************
    ** The toplevel component is connected here                                   **
