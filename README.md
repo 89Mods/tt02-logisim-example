@@ -1,13 +1,12 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg)
 
-# What is Tiny Tapeout?
+Example to show that it is possible to use [Logisim Evolution](https://github.com/logisim-evolution/logisim-evolution) to create chip layouts for TinyTapeout.
 
-TinyTapeout is an educational project that aims to make it easier and cheaper than ever to get your digital designs manufactured on a real chip!
+This example implements the following circuit:
 
-Go to https://tinytapeout.com for instructions!
+![circuit](https://raw.githubusercontent.com/89Mods/tt02-logisim-example/main/circuit.png)
 
-## Resources
+After exporting the project from Logisim as Verilog, only a few lines of code need to be modified on the export to make it usable with TinyTapeout.
 
-* [FAQ](https://tinytapeout.com/faq/)
-* [Digital design lessons](https://tinytapeout.com/digital_design/)
-* [Join the community](https://discord.gg/rPK2nSjxy8)
+## TODO
+ - Document the changes needed on the export to make it work
