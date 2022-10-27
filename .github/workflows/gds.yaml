@@ -29,9 +29,10 @@ jobs:
       with:
         name: test-results
         path: |
-          /src/tb.vcd
-          /src/results.xml
+          tb.vcd
+          results.xml
   gds:
+    needs: test
     env:
         OPENLANE_IMAGE_NAME:    efabless/openlane:2022.07.02_01.38.08
         OPENLANE_ROOT:  /home/runner/openlane
