@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v3
     - name: install required packages
       run: |
-        apt-get install -y iverilog python3 python3-pip
+        sudo apt-get install -y iverilog python3 python3-pip
         pip3 install cocotb pytest
         cocotb-config --libpython
         cocotb-config --python-bin
