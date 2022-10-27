@@ -11,13 +11,12 @@ jobs:
     steps:
     - name: checkout repo
       uses: actions/checkout@v3
-    - name: install oss-cad-suite
-      uses: YosysHQ/setup-oss-cad-suite@v1
+    - name: install required packages
       with:
         python-override: true
     - run: |
-        yosys --version
-        iverilog -V
+        apt-get install -y iverilog
+        pip3 install cocotb pytest
         cocotb-config --libpython
         cocotb-config --python-bin
     - name: test
