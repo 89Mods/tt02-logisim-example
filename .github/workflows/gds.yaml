@@ -6,6 +6,31 @@ permissions:
   pages: write
   id-token: write
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout repo
+      uses: actions/checkout@v2
+    - name: install oss-cad-suite
+      uses: YosysHQ/setup-oss-cad-suite@v1
+      with:
+        python-override: true
+    - run: |
+        yosys --version
+        iverilog -V
+        cocotb-config --libpython
+        cocotb-config --python-bin
+    - name: test
+      run: |
+        cd src
+        make
+        ! grep failure results.xml
+    - uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: |
+          /src/tb.vcd
+          /src/results.xml
   gds:
     env:
         OPENLANE_IMAGE_NAME:    efabless/openlane:2022.07.02_01.38.08
