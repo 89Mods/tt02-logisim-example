@@ -124,7 +124,7 @@ cocotb.start_soon(clock.start())
 
 This will also allow you to wait for a certain number of clock cycles to pass, as shown in this bit of code, which activates the reset for exactly 10 clock cycles:
 ```python
-dut.RST = 1
+dut.RST.value = 1
 await ClockCycles(dut.CLK, 10)
 dut.RST = 0
 ```
