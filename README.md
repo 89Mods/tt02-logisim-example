@@ -70,10 +70,12 @@ Go to the wire definition for that input. For example, `wire s_RST`. Then, set i
 
 For all **outputs**, do the following:
 
-You will need to add a new line assigning to an index of io_out the vlaue of one of the wires. For instance, to connect s_O_0 to output pin 1 on the chip, write: `assign io_out[0] = s_O_0;`
+You will need to add a new line assigning to an index of io_out the value of one of the wires. For instance, to connect s_O_0 to output pin 1 on the chip, write: `assign io_out[0] = s_O_0;`
 
 Your final config should look like the one [in this repository.](https://github.com/89Mods/tt02-logisim-example/blob/main/src/toplevel/logisimTopLevelShell.v)
 
-You’re almost done. Last thing to do is to list all the verilog source files in your info.yaml. Open that file and right at the top, under `source_files`, expand that list to include every .v file exported by Logisim. There might be quite a few, so make sure not to miss any. Of course, don’t forget to set all the other info as well.
+You’re almost done. Last thing to do is to list all the verilog source files in your info.yaml. Open that file and right at the top, under `source_files`, expand that list to include every .v file exported by Logisim. There might be quite a few, so make sure not to miss any. Of course, don’t forget to fill in all the other info as well.
 
 And that’s it. Your project should now be build-ready. So push to the repo, and watch the actions pipeline build your design.
+
+And the best part: you only need to do this once! The `logisimTopLevelShell.v` file does not change between exports, **unless you change the names of your I/O pins!** Just make sure to not overwrite this file the next time you copy in a updated logisim export, and you’re good to go!
