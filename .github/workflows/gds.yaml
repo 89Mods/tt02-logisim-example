@@ -126,8 +126,8 @@ jobs:
           python-override: true
       - name: test
         run: |
-          echo ($PDK_ROOT)
-          tree ($PDK_ROOT)
+          echo $PDK_ROOT
+          tree $PDK_ROOT
           cd src
           GATES=yes make
           # make will return success even if the test fails, so check for failure in the results.xml
