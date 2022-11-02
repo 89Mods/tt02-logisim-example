@@ -98,7 +98,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get build output
-        run: 'cp runs/wokwi/results/final/verilog/gl/logisim_demo.v src/logisim_demo.gl.v'
+        #run: 'cp runs/wokwi/results/final/verilog/gl/logisim_demo.v src/logisim_demo.gl.v'
+         run: |
+              pwd
+              tree
       - name: test
         run: |
           cd src
