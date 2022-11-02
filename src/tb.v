@@ -18,6 +18,10 @@ module tb (
 	assign OUT = outputs[3:0];
 
 	logisim_demo logisim_demo (
+		`ifdef GL_TEST
+			.vccd1( 1'b1),
+			.vssd1( 1'b0),
+		`endif
 		.io_in (inputs),
 		.io_out (outputs)
 	);
