@@ -109,6 +109,16 @@ jobs:
           key: ${{ runner.os }}-runs-${{ github.run_id }}
       - name: get build output
         run: 'cp runs/wokwi/results/final/verilog/gl/logisim_demo.v src/logisim_demo.gl.v'
+      - name: pdk
+        run: |
+          cd $HOME
+          git clone https://github.com/efabless/caravel_user_project.git -b mpw-7a
+          cd caravel_user_project
+          make install pdk-with-volare
+      - name: install oss-cad-suite
+        uses: YosysHQ/setup-oss-cad-suite@v1
+        with:
+          python-override: true
       - name: test
         run: |
           cd src
