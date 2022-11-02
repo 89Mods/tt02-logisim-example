@@ -100,6 +100,7 @@ jobs:
       - name: get build output
         #run: 'cp runs/wokwi/results/final/verilog/gl/logisim_demo.v src/logisim_demo.gl.v'
         run: |
+          cd ..
           pwd
           tree
       - name: test
