@@ -93,9 +93,20 @@ jobs:
       with:
         path: runs
         key: ${{ runner.os }}-runs-${{ github.run_id }}
-
-  svg:
+  gltest:
     needs: gds
+    runs-on: ubuntu-latest
+    steps:
+      - name: get build output
+        run: 'cp runs/wokwi/results/final/verilog/gl/logisim_demo.v src/logisim_demo.gl.v'
+      - name: test
+        run: |
+          cd src
+          GATES=yes make
+          # make will return success even if the test fails, so check for failure in the results.xml
+          ! grep failure results.xml
+  svg:
+    needs: gltest
     runs-on: ubuntu-latest
     steps:
     - name: checkout repo
@@ -132,7 +143,7 @@ jobs:
         key: ${{ runner.os }}-svg-${{ github.run_id }}
 
   viewer:
-    needs: gds
+    needs: gltest
     runs-on: ubuntu-latest
     steps:
     - name: checkout GDS2glTF repo
