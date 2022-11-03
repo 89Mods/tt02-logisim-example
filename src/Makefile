@@ -14,7 +14,7 @@ COMPILE_ARGS += -DUNIT_DELAY=#1
 VERILOG_SOURCES += $(PDK_ROOT)/sky130B/libs.ref/sky130_fd_sc_hd/verilog/primitives.v
 VERILOG_SOURCES += $(PDK_ROOT)/sky130B/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v
 
-# copy the gatelevel verilog from /runs/wokwi/results/final/verilog/gl/ and commit to this directory
+# gatelevel verilog from /runs/wokwi/results/final/verilog/gl/
 VERILOG_SOURCES += $(PWD)/tb.v $(PWD)/logisim_demo.gl.v
 endif
 
