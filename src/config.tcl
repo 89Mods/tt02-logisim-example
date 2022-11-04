@@ -46,7 +46,7 @@ set ::env(DECAP_CELL) "\
 
 # clock
 set ::env(CLOCK_PERIOD) "10000"
-set ::env(CLOCK_PORT) "io_in[0]"
+set ::env(CLOCK_PORT) {io_in[0]}
 
 # don't use power rings or met5
 set ::env(DESIGN_IS_CORE) 0
