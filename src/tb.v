@@ -4,7 +4,7 @@
 module tb (
 	input CLK,
 	input RST,
-	output [3:0] OUT
+	output [7:0] OUT
 	);
 
 	initial begin
@@ -15,7 +15,7 @@ module tb (
 
 	wire [7:0] inputs = {6'b0, RST, CLK};
 	wire [7:0] outputs;
-	assign OUT = outputs[3:0];
+	assign OUT = outputs[7:0];
 
 	logisim_demo logisim_demo (
 		`ifdef GL_TEST

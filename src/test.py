@@ -2,7 +2,7 @@ import cocotb
 from cocotb.clock import Clock
 from cocotb.triggers import RisingEdge, FallingEdge, Timer, ClockCycles
 
-expected_outs = [ 2, 4, 8, 1, 2, 4, 8, 1, 2, 4, 8, 1, 2, 4, 8, 1 ]
+expected_outs = [ 0b00000110, 0b11011011, 0b01100110, 0b11111111 ]*4
 
 @cocotb.test()
 async def test_shift(dut):
@@ -14,11 +14,11 @@ async def test_shift(dut):
 	dut.RST = 1
 	await ClockCycles(dut.CLK, 10)
 	dut.RST = 0
-	assert int(dut.OUT.value) == 1
+	assert int(dut.OUT.value) == expected_outs[0]
 	await ClockCycles(dut.CLK, 1)
 
 	dut._log.info("check output")
-	for i in range(16):
-		dut._log.info("check output {}".format(i))
+	for i in range(15):
+		dut._log.info("check output {}".format(i + 1))
 		await ClockCycles(dut.CLK, 1)
-		assert int(dut.OUT.value) == expected_outs[i]
+		assert int(dut.OUT.value) == expected_outs[i + 1]
