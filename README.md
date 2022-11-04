@@ -6,6 +6,8 @@ This example implements the following circuit:
 
 ![circuit](https://raw.githubusercontent.com/89Mods/tt02-logisim-example/main/circuit.png)
 
+All it does is flash the number sequence "1 2 4 8" on the 7-segment display, while blinking the DP.
+
 After exporting the project from Logisim as Verilog, only a few lines of code need to be modified on the export to make it usable with TinyTapeout.
 
 ## How-to
@@ -19,10 +21,14 @@ Next, you need to edit the top level module definition to look like what TinyTap
 Firstly, the module definition. By default, it will look something like this:
 
 ```verilog
-module logisimTopLevelShell( O_0_0,
-                             O_1_0,
-                             O_2_0,
-                             O_3_0,
+module logisimTopLevelShell( A,
+                             B,
+                             C,
+                             D,
+                             E,
+                             F,
+                             G,
+                             DP,
                              n_CLK_0,
                              n_RST_0 );
 ```
@@ -49,17 +55,25 @@ module module_name(
   output [7:0] io_out
 );
    wire s_CLK;
-   wire s_O_0;
-   wire s_O_1;
-   wire s_O_2;
-   wire s_O_3;
+   wire s_A;
+   wire s_B;
+   wire s_C;
+   wire s_D;
+   wire s_E;
+   wire s_F;
+   wire s_G;
+   wire s_DP;
    wire s_RST;
    
    main   CIRCUIT_0 (.CLK(s_CLK),
-                     .O_0(s_O_0),
-                     .O_1(s_O_1),
-                     .O_2(s_O_2),
-                     .O_3(s_O_3),
+                     .A(s_A),
+                     .B(s_B),
+                     .C(s_C),
+                     .D(s_D),
+                     .E(s_E),
+                     .F(s_F),
+                     .G(s_G),
+                     .DP(s_DP),
                      .RST(s_RST));
 endmodule
 ```
@@ -70,7 +84,7 @@ Go to the wire definition for that input. For example, `wire s_RST`. Then, set i
 
 For all **outputs**, do the following:
 
-You will need to add a new line assigning to an index of io_out the value of one of the wires. For instance, to connect s_O_0 to output pin 1 on the chip, write: `assign io_out[0] = s_O_0;`
+You will need to add a new line assigning to an index of io_out the value of one of the wires. For instance, to connect s_A to output pin 1 on the chip, write: `assign io_out[0] = s_A;`
 
 Your final config should look like the one [in this repository.](https://github.com/89Mods/tt02-logisim-example/blob/main/src/toplevel/logisimTopLevelShell.v)
 
