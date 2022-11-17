@@ -16,6 +16,7 @@ project:
 #
 # This info will be automatically collected and used to make a datasheet for the chip.
 documentation:
+  discord_username: "Tholin#7559"
   author:       "Tholin"      # Your name
   title:        "Logisim demo - LED blinker"      # Project title
   description:  "Example of how to use Logisim Evolution generated Verilog for TinyTapeout."      # Short description of what your project does
